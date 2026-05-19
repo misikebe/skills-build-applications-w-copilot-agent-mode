@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react';
-
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,30 +19,36 @@ const Users = () => {
       });
   }, [endpoint]);
 
-  if (loading) return <div>Loading users...</div>;
+  if (loading) return <div className="text-center my-4"><div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div></div>;
 
   return (
-    <div className="card">
+    <div className="card shadow-sm mb-4">
       <div className="card-body">
-        <h2 className="card-title">Users</h2>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Username</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, idx) => (
-              <tr key={user.id || idx}>
-                <td>{user.id}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
+        <h2 className="card-title mb-4 text-primary">Users</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-hover align-middle">
+            <thead className="table-primary">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map((user, idx) => (
+                <tr key={user.id || idx}>
+                  <td>{user.id}</td>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <button className="btn btn-sm btn-outline-primary">View</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

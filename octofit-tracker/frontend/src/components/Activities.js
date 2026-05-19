@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react';
-
 const Activities = () => {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,30 +19,36 @@ const Activities = () => {
       });
   }, [endpoint]);
 
-  if (loading) return <div>Loading activities...</div>;
+  if (loading) return <div className="text-center my-4"><div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div></div>;
 
   return (
-    <div className="card">
+    <div className="card shadow-sm mb-4">
       <div className="card-body">
-        <h2 className="card-title">Activities</h2>
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {activities.map((activity, idx) => (
-              <tr key={activity.id || idx}>
-                <td>{activity.id}</td>
-                <td>{activity.name}</td>
-                <td>{activity.date}</td>
+        <h2 className="card-title mb-4 text-primary">Activities</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-hover align-middle">
+            <thead className="table-primary">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {activities.map((activity, idx) => (
+                <tr key={activity.id || idx}>
+                  <td>{activity.id}</td>
+                  <td>{activity.name}</td>
+                  <td>{activity.date}</td>
+                  <td>
+                    <button className="btn btn-sm btn-outline-primary">View</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
