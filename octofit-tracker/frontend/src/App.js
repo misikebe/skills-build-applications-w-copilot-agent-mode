@@ -2,6 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import logo from '../public/octofitapp-small.svg';
+import Activities from './components/Activities';
+import Leaderboard from './components/Leaderboard';
+import Teams from './components/Teams';
+import Users from './components/Users';
+import Workouts from './components/Workouts';
 
 function App() {
   return (
@@ -18,9 +23,20 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                <Link className="nav-link" to="/activities">Activities</Link>
               </li>
-              {/* Add more nav items as needed */}
+              <li className="nav-item">
+                <Link className="nav-link" to="/leaderboard">Leaderboard</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/teams">Teams</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/users">Users</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/workouts">Workouts</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -37,6 +53,11 @@ function App() {
               </div>
             </div>
           } />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/teams" element={<Teams />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/workouts" element={<Workouts />} />
         </Routes>
       </div>
     </Router>
