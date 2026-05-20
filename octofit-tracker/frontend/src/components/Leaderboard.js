@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 const Leaderboard = () => {
   const [leaders, setLeaders] = useState([]);
   const [loading, setLoading] = useState(true);
