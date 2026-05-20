@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import logo from '../public/octofitapp-small.svg';
+// Use public folder for logo
+const logo = process.env.PUBLIC_URL + '/octofitapp-small.svg';
 import Activities from './components/Activities';
 import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
