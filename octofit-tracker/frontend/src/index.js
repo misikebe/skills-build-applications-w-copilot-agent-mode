@@ -1,4 +1,8 @@
 
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
 // Set REACT_APP_CODESPACE_URL from environment or fallback
 if (!process.env.REACT_APP_CODESPACE_URL) {
   // Try to infer from window.location if running in browser
