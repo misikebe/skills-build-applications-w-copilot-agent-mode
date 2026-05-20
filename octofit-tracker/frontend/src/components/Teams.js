@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 const Teams = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
